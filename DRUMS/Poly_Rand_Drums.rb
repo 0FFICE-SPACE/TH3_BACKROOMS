@@ -23,3 +23,5 @@ define :bops do
     sleep choose([0.1,0.2,0.3])
   end
 end
+
+bops
