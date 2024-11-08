@@ -10,9 +10,10 @@ define :d_ply_beat do  |x|
   end
 end
 
-
 /main/
 loop do
-  d_ply_beat [0.25,0.5].tick
+  A = [0.25, 0.5] # play around with these values or the bpm up top
+  d_ply_beat A.tick
+  print A
   sleep 36
 end
