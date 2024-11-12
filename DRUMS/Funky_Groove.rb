@@ -1,4 +1,4 @@
-use_bpm 127
+use_bpm 130
 
 define :d_ply_beat do  |x|
   live_loop :ply_beat do
@@ -10,10 +10,22 @@ define :d_ply_beat do  |x|
   end
 end
 
+define :d_atmosphere do
+  live_loop :atmosphere do
+    sample :vinyl_hiss, amp: 0.85, rate: [-1,1].choose
+    sleep sample_duration :vinyl_hiss
+  end
+end
+
+
 /main/
-loop do
-  A = [0.25, 0.5] # play around with these values or the bpm up top
-  d_ply_beat A.tick
+live_loop :main do
+  A = [0.25, 0.25].tick # play around with these values or the bpm up top
+  d_ply_beat A
   print A
+  
   sleep 36
 end
+d_atmosphere
+
+
